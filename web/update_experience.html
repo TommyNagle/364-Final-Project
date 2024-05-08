@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+    <title>NFL Database</title>
+    <link href="nfl_css_sheet.css" rel="stylesheet"/>
+</head>
+
+<body>
+    <header>
+        <img src="nfl_logo.jpg" alt="Logo" />
+        <h1>statistics</h1>
+    </header>
+
+    <nav class="navbar">
+        <a href="index.html">Introduction</a>
+        <a href="player_search.html">Player Search</a>
+        <a href="team_search.php">Team Search</a>
+        <a href="rank.php">Statistic Summary</a>
+        <a class="active" href="login.php">Admin Login</a>
+    </nav> <br> <br>
+
+    <main>
+
+        <h2>Select a table to edit and click switch.</h2>
+        
+        <div class = "edit">
+            <form style="background-color:black" action="perform_update.php" method="post">
+
+                <label style="color: white" for="filter">Table:</label>
+                <select name="filter" id="filter">
+                    <option value="update_experience.html">Experience</option>
+                    <option value="update_coach.html">Coach</option>
+                    <option value="update_history.html">History</option>
+                    <option value="update_player.html">Player</option>
+                    <option value="update_team.html">Team</option>
+                </select> <br>
+                <button onclick="navigate()">Switch</button> <br> <br>
+                
+                <label for="textbox">Coach ID of Experience entry to update:</label><br>
+                <input type="number" name="coach_id" required pattern="[0-9]" required><br><br>
+
+                <h4>Information to change</h4>
+    
+                <label for="textbox">Team:</label><br>
+                <input type="text" name="team" required pattern="[a-zA-Z\-*]{1,20}" required><br>
+
+                <label for="textbox">First Name:</label><br>
+                <input type="text" name="first_name" required pattern="[a-zA-Z\-*]{1,20}" required><br>
+    
+                <label for="textbox">Last Name:</label><br>
+                <input type="text" name="last_name" required pattern="[a-zA-Z\-*]{1,20}" required><br>
+
+                <label for="textbox">Years Coached:</label>
+                <input type="number" name="years_coached" required pattern="[0-9]" required><br>
+    
+                <label for="textbox">Coach Type:</label><br>
+                <input type="text" name="coach_type" required pattern="[a-zA-Z\-*]{1,20}" required><br>
+                
+                <button type="submit">Edit</button>
+                <button onclick="nav2()">Return to Edit Operation Selection</button> <br>
+            </form> <br>
+        </div>
+
+        <form style="background-color: black" action="logout.php" method="post">
+            <button type="submit">Logout</button>
+        </form>
+        
+    </main>
+
+    <script>
+        function navigate() {
+            var filter = document.getElementById("filter");
+            var nextPage = filter.value;
+            window.location.href = nextPage;
+        }
+        function nav2() {
+            window.location.href = "select_op.php";
+        }
+    </script>
+        
+</body>
+</html>

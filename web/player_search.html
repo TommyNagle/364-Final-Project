@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+    <title>NFL Database</title>
+    <link href="nfl_css_sheet.css" rel="stylesheet"/>
+</head>
+
+<body>
+    <header>
+        <img src="nfl_logo.jpg" alt="Logo" />
+        <h1>statistics</h1>
+    </header>
+
+    <nav class="navbar">
+        <a href="index.html">Introduction</a>
+        <a class="active" href="player_search.html">Player Search</a>
+        <a href="team_search.php">Team Search</a>
+        <a href="rank.php">Statistic Summary</a>
+        <a href="login.php">Admin Login</a>
+    </nav> <br> <br>
+
+    <main>
+        <h2>Search for an NFL widereceiver</h2>
+        <h3>Use an asterisk (*) in the textbox if you do not know a name.</h3>
+        <h3>Names must be spelled correctly.</h3>
+        <form id="player_search" action="player_display.php" method="get">
+            <label for="textbox">Enter first name</label>
+            <input type="text" name="firstName" required pattern="[a-zA-Z\-*]{1,15}" required><br>
+ 
+            <label for="textbox">Enter last name</label>
+            <input type="text" name="lastName" required pattern="[a-zA-Z\-*]{1,15}" required><br>
+ 
+            <button type="submit">Search</button>
+        </form>
+    </main>
+        
+</body>
+</html>
