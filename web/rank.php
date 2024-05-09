@@ -16,8 +16,9 @@ if ($mysqli->connect_error) {
 }
  
 // SQL query to select data from database
-$sql = " SELECT * FROM Player ORDER BY nfl_rank ASC ";
-$result = $mysqli->query($sql);
+$stmt = $mysqli->prepare(" SELECT * FROM Player ORDER BY nfl_rank ASC ");
+$stmt->execute();
+$result = $stmt->get_result();
 $mysqli->close();
 ?>
 

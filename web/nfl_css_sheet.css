@@ -22,7 +22,7 @@ h3 {
 
 @font-face {
     font-family: nfl_Font;
-    src: url(nfl.ttf);
+    src: url(nfl.otf);
 }
 
 img {
@@ -74,7 +74,7 @@ table {
     width: 50%;
     font-family: nfl_Font;
     color:white;
-    font-size: 20;
+    font-size: 20px;
 }
 
 th, td {
@@ -100,10 +100,29 @@ form {
 
  p {
     margin: auto;
-    width: 50%;
-    font-size: 15px;
+    width: 60%;
+    font-size: 20px;
     font-family: nfl_Font;
     color: white;
+}
+
+button {
+    height: 45px; 
+    width: 200px;
+    font-size: 18px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+select {
+    width: 200px; 
+    height: 45px;
+    font-size: 20px;
+    text-align: center;
+}
+
+label {
+    font-size: 20px;
 }
 
 

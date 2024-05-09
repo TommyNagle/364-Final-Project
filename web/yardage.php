@@ -22,8 +22,9 @@ if ($mysqli->connect_error) {
 }
  
 // SQL query to select data from database
-$sql = " SELECT * FROM Player ORDER BY receiving_yardage DESC ";
-$result = $mysqli->query($sql);
+$stmt = $mysqli->prepare(" SELECT * FROM Player ORDER BY receiving_yardage DESC ");
+$stmt->execute();
+$result = $stmt->get_result();
 $mysqli->close();
 ?>
 

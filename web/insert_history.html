@@ -27,7 +27,6 @@
         <div class = "edit">
             <form style="background-color:black" action="perform_insert.php" method="post">
 
-                <label style="color: white" for="filter">Table:</label>
                 <select name="filter" id="filter">
                     <option value="insert_history.html">History</option>
                     <option value="insert_player.html">Player</option>
@@ -35,7 +34,11 @@
                     <option value="insert_coach.html">Coach</option>
                     <option value="insert_experience.html">Experience</option>
                 </select> <br>
-                <button onclick="navigate()">Switch</button> <br> <br>
+            </form>
+
+            <button onclick="navigate()">Switch</button> <br> <br>
+
+            <form style="background-color:black" action="perform_insert.php" method="post">
                 
                 <label for="textbox">Player ID:</label><br>
                 <input type="number" name="player_id" required pattern="[0-9]" required><br>
@@ -58,7 +61,7 @@
                 <label for="textbox">Previous Team:</label>
                 <input type="text" name="previous_team" required pattern="[a-zA-Z\-*]{1,20}" required><br>
                 
-                <button type="submit">Edit</button>
+                <button type="submit">Edit</button><br>
                 <button onclick="nav2()">Return to Edit Operation Selection</button> <br>
             </form> <br>
         </div>

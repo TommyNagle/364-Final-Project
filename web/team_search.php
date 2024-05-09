@@ -46,7 +46,6 @@ $mysqli->close();
         <h2>Search for an NFL Team</h2>
         <div class="categories">
             <form action="team_display.php" method="get">
-                <label for="filter">Choose an NFL Team to Search:</label>
                 <select name="filter" id="filter">
                     <?php 
                         // loop through teams and fill dropbox

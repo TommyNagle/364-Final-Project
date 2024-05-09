@@ -19,13 +19,17 @@ if ($mysqli->connect_error) {
 $team = $_GET['filter'];
 
 // Select data from database
-$sql = "SELECT name, year_founded, num_wins, num_widereceivers FROM Team WHERE name = '$team'";
-$teamResult = $mysqli->query($sql);
+$stmt = $mysqli->prepare("SELECT name, year_founded, num_wins, num_widereceivers FROM Team WHERE name = ?");
+$stmt->bind_param("s", $team);
+$stmt->execute();
+$teamResult = $stmt->get_result();
 
-$sql = "SELECT Coach.name, Experience.years_coached, Experience.coach_type 
+$stmt2 = $mysqli->prepare("SELECT Coach.first_name, Coach.last_name, Experience.years_coached, Experience.coach_type
     FROM Coach JOIN Experience ON Coach.coach_id=Experience.coach_id
-    WHERE Coach.team = '$team'";
-$coachResult = $mysqli->query($sql);
+    WHERE Coach.team = ?");
+$stmt2->bind_param("s", $team);
+$stmt2->execute();
+$coachResult = $stmt2->get_result();
 $mysqli->close();
 ?>
 
@@ -81,7 +85,8 @@ $mysqli->close();
         <h2>Coaches</h2>
         <table>
             <tr>
-                <th>Name</th>
+                <th>First Name</th>
+                <th>Last Name</th>
                 <th>Years Coached</th>
                 <th>Type of Coach</th>
             </tr>
@@ -92,7 +97,8 @@ $mysqli->close();
                 {
             ?>
             <tr>
-                <td><?php echo $rows['name'];?></td>
+                <td><?php echo $rows['first_name'];?></td>
+                <td><?php echo $rows['last_name'];?></td>
                 <td><?php echo $rows['years_coached'];?></td>
                 <td><?php echo $rows['coach_type'];?></td>
             </tr>

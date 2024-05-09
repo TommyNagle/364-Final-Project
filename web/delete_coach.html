@@ -26,8 +26,7 @@
         
         <div class = "edit">
             <form style="background-color:black" action="perform_delete.php" method="post">
-
-                <label style="color: white" for="filter">Table:</label>
+                
                 <select name="filter" id="filter">
                     <option value="delete_coach.html">Coach</option>
                     <option value="delete_history.html">History</option>
@@ -37,7 +36,7 @@
                 </select> <br>
                 <button onclick="navigate()">Switch</button> <br> <br>
                 
-                <label for="textbox">Coach ID of Coach entry to delete:</label><br>
+                <label for="textbox">Coach ID to Delete:</label><br>
                 <input type="number" name="coach_id" required pattern="[0-9]" required><br><br>
                 
                 <button type="submit">Edit</button> <br>

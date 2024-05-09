@@ -27,7 +27,6 @@
         <div class = "edit">
             <form style="background-color:black" action="perform_update.php" method="post">
 
-                <label style="color: white" for="filter">Table:</label>
                 <select name="filter" id="filter">
                     <option value="update_team.html">Team</option>
                     <option value="update_player.html">Player</option>
@@ -35,23 +34,27 @@
                     <option value="update_coach.html">Coach</option>
                     <option value="update_experience.html">Experience</option>
                 </select> <br>
-                <button onclick="navigate()">Switch</button> <br> <br>
+            </form>
+            
+            <button onclick="navigate()">Switch</button> <br> <br>
+
+            <form style="background-color:black" action="perform_update.php" method="post">
                 
-                <label for="textbox">Name of Team entry to update:</label> <br>
+                <label for="textbox">Team to Update:</label> <br>
                 <input type="text" name="name" required pattern="[a-zA-Z\-*]{1,20}" required><br><br>
 
-                <h4>Information to change</h4>
+                <h4 style="font-size:20px">Information to change</h4>
     
                 <label for="textbox">Year Founded:</label>
-                <input type="number" name="year_founded" required pattern="[0-9]" required><br>
+                <input type="number" name="year_founded" required pattern="[0-9]"><br>
 
                 <label for="textbox">Wins:</label> <br>
-                <input type="number" name="num_wins" required pattern="[0-9]" required><br>
+                <input type="number" name="num_wins" required pattern="[0-9]"><br>
     
                 <label for="textbox">Widereceivers:</label>
-                <input type="number" name="num_widereceivers" required pattern="[0-9]" required><br>
+                <input type="number" name="num_widereceivers" required pattern="[0-9]"><br>
                 
-                <button type="submit">Edit</button>
+                <button type="submit">Edit</button><br>
                 <button onclick="nav2()">Return to Edit Operation Selection</button> <br>
             </form> <br>
         </div>

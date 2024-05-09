@@ -19,26 +19,50 @@ if ($mysqli->connect_error) {
 $fname = $_GET['firstName'];
 $lname = $_GET['lastName'];
 
+
+
 // Select data from database based on form inputs
 if ($lname == '*' && $fname == '*') {
-    $sql = "SELECT * FROM Player JOIN History ON Player.player_id = History.player_id";
-    $playerResult = $mysqli->query($sql);
-    $historyResult = $mysqli->query($sql);
+    $stmt = $mysqli->prepare("SELECT * FROM Player JOIN History ON Player.player_id = History.player_id");
+    $stmt->execute();
+    $playerResult = $stmt->get_result();
+
+    $stmt2 = $mysqli->prepare("SELECT * FROM Player JOIN History ON Player.player_id = History.player_id");
+    $stmt2->execute();
+    $historyResult = $stmt2->get_result();
 } 
 elseif($lname == '*') {
-    $sql = "SELECT * FROM Player JOIN History ON Player.player_id = History.player_id WHERE Player.player_first = '$fname'";
-    $playerResult = $mysqli->query($sql);
-    $historyResult = $mysqli->query($sql);
+    $stmt = $mysqli->prepare("SELECT * FROM Player JOIN History ON Player.player_id = History.player_id WHERE Player.player_first = ?");
+    $stmt->bind_param("s", $fname);
+    $stmt->execute();
+    $playerResult = $stmt->get_result();
+
+    $stmt2 = $mysqli->prepare("SELECT * FROM Player JOIN History ON Player.player_id = History.player_id WHERE Player.player_first = ?");
+    $stmt2->bind_param("s", $fname);
+    $stmt->execute();
+    $historyResult = $stmt->get_result();
 }
 elseif($fname == '*' ) {
-    $sql = "SELECT * FROM Player JOIN History ON Player.player_id = History.player_id WHERE Player.player_last = '$lname'";
-    $playerResult = $mysqli->query($sql);
-    $historyResult = $mysqli->query($sql);
+    $stmt = $mysqli->prepare("SELECT * FROM Player JOIN History ON Player.player_id = History.player_id WHERE Player.player_last = ?");
+    $stmt->bind_param("s", $lname);
+    $stmt->execute();
+    $playerResult = $stmt->get_result();
+
+    $stmt2 = $mysqli->prepare("SELECT * FROM Player JOIN History ON Player.player_id = History.player_id WHERE Player.player_last = ?");
+    $stmt2->bind_param("s", $lname);
+    $stmt2->execute();
+    $historyResult = $stmt2->get_result();
 }
 else {
-    $sql = "SELECT * FROM Player JOIN History ON Player.player_id = History.player_id WHERE Player.player_first = '$fname' AND Player.player_last = '$lname'";
-    $playerResult = $mysqli->query($sql);
-    $historyResult = $mysqli->query($sql);
+    $stmt = $mysqli->prepare("SELECT * FROM Player JOIN History ON Player.player_id = History.player_id WHERE Player.player_first = ? AND Player.player_last = ?");
+    $stmt->bind_param("ss", $fname, $lname);
+    $stmt->execute();
+    $playerResult = $stmt->get_result();
+
+    $stmt2 = $mysqli->prepare("SELECT * FROM Player JOIN History ON Player.player_id = History.player_id WHERE Player.player_first = ? AND Player.player_last = ?");
+    $stmt2->bind_param("ss", $fname, $lname);
+    $stmt2->execute();
+    $historyResult = $stmt2->get_result();
 }
 
 $mysqli->close();

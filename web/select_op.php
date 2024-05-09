@@ -31,7 +31,6 @@ include('authenticate.php')
         <h2>Select an Operation to Perform</h2> <br>
         <div name="categories">
             
-            <label style="color: red; font-family: nfl_Font" for="filter">Operation:</label>
             <select name="filter" id="filter">
                 <option value="insert_player.html">Insert</option>
                 <option value="update_player.html">Update</option>

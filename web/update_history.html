@@ -27,7 +27,6 @@
         <div class = "edit">
             <form style="background-color:black" action="perform_update.php" method="post">
 
-                <label style="color: white" for="filter">Table:</label>
                 <select name="filter" id="filter">
                     <option value="update_history.html">History</option>
                     <option value="update_player.html">Player</option>
@@ -35,32 +34,36 @@
                     <option value="update_coach.html">Coach</option>
                     <option value="update_experience.html">Experience</option>
                 </select> <br>
-                <button onclick="navigate()">Switch</button> <br> <br>
+            </form>
+            
+            <button onclick="navigate()">Switch</button> <br> <br>
+
+            <form style="background-color:black" action="perform_update.php" method="post">
                 
-                <label for="textbox">Player ID of History entry to update:</label><br>
+                <label for="textbox">Player ID to Update:</label><br>
                 <input type="number" name="player_id" required pattern="[0-9]" required><br><br>
 
-                <h4>Information to change</h4>
+                <h4 style="font-size:20px">Information to change</h4>
     
                 <label for="textbox">Career Touchdowns:</label>
-                <input type="number" name="career_touchdowns" required pattern="[0-9]" required><br>
+                <input type="number" name="career_touchdowns" required pattern="[0-9]"><br>
 
                 <label for="textbox">Career Receiving Yardage:</label>
-                <input type="number" name="career_receiving_yardage" required pattern="[0-9]" required><br>
+                <input type="number" name="career_receiving_yardage" required pattern="[0-9]"><br>
     
                 <label for="textbox">Career Catches:</label>
-                <input type="number" name="career_catches" required pattern="[0-9]" required><br>
+                <input type="number" name="career_catches" required pattern="[0-9]"><br>
 
                 <label for="textbox">Years Played in NFL:</label>
-                <input type="number" name="years_played" required pattern="[0-9]" required><br>
+                <input type="number" name="years_played" required pattern="[0-9]"><br>
     
                 <label for="textbox">Current Team:</label>
-                <input type="text" name="current_team" required pattern="[a-zA-Z\-*]{1,20}" required><br>
+                <input type="text" name="current_team" required pattern="[a-zA-Z\-*]{1,20}"><br>
 
                 <label for="textbox">Previous Team:</label>
-                <input type="text" name="previous_team" required pattern="[a-zA-Z\-*]{1,20}" required><br>
+                <input type="text" name="previous_team" required pattern="[a-zA-Z\-*]{1,20}"><br>
                 
-                <button type="submit">Edit</button>
+                <button type="submit">Edit</button><br>
                 <button onclick="nav2()">Return to Edit Operation Selection</button> <br>
             </form> <br>
         </div>
