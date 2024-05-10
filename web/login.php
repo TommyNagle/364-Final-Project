@@ -80,9 +80,17 @@ if (isset($_SESSION["username"])) { // authenticated
             echo "<span style='color: red;'>Invalid username or password.</span>";
           }
         ?>
-        </form>
+        </form> <br>
+
+        <button onclick="navigate()">Change password</button> <br>
         
     </main>
+
+    <script>
+        function navigate() {
+            window.location.href = "new_login.php";
+        }
+    </script>
         
 </body>
 </html>

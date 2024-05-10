@@ -16,7 +16,8 @@ if ($mysqli->connect_error) {
 }
 
 // Get name form value
-$team = $_GET['filter'];
+$input = $_GET['filter'];
+$team = htmlspecialchars($input, ENT_QUOTES);
 
 // Select data from database
 $stmt = $mysqli->prepare("SELECT name, year_founded, num_wins, num_widereceivers FROM Team WHERE name = ?");

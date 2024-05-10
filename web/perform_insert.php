@@ -18,14 +18,30 @@ if ($mysqli->connect_error) {
 // Perform insert based on selected table
 if (strcmp($_POST['filter'], "insert_player.html") == 0) {
     $table = "Player";
-    $player_id = $_POST['player_id'];
-    $nfl_rank = $_POST['nfl_rank'];
-    $player_last = $_POST['player_last'];
-    $player_first = $_POST['player_first'];
-    $team = $_POST['team'];
-    $touchdowns = $_POST['touchdowns'];
-    $receiving_yardage = $_POST['receiving_yardage'];
-    $catches = $_POST['catches'];
+
+    $input = $_POST['player_id'];
+    $player_id = htmlspecialchars($input, ENT_QUOTES);
+
+    $input2 = $_POST['nfl_rank'];
+    $nfl_rank = htmlspecialchars($input2, ENT_QUOTES);
+
+    $input3 = $_POST['player_last'];
+    $player_last = htmlspecialchars($input3, ENT_QUOTES);
+
+    $input4 = $_POST['player_first'];
+    $player_first = htmlspecialchars($input4, ENT_QUOTES);
+
+    $input5 = $_POST['team'];
+    $team = htmlspecialchars($input5, ENT_QUOTES);
+
+    $input6 = $_POST['touchdowns'];
+    $touchdowns = htmlspecialchars($input6, ENT_QUOTES);
+
+    $input7 = $_POST['receiving_yardage'];
+    $receiving_yardage = htmlspecialchars($input7, ENT_QUOTES);
+
+    $input8 = $_POST['catches'];
+    $catches = htmlspecialchars($input8, ENT_QUOTES);
 
     // Perform insert operation
     $checkstmt = $mysqli->prepare("SELECT * FROM $table WHERE player_id=?");
@@ -53,10 +69,18 @@ if (strcmp($_POST['filter'], "insert_player.html") == 0) {
 }
 elseif (strcmp($_POST['filter'], "insert_team.html") == 0) {
     $table = "Team";
-    $name = $_POST['name'];
-    $year_founded = $_POST['year_founded'];
-    $num_wins = $_POST['num_wins'];
-    $num_widereceivers = $_POST['num_widereceivers'];
+
+    $input = $_POST['name'];
+    $name = htmlspecialchars($input, ENT_QUOTES);
+
+    $input2 = $_POST['year_founded'];
+    $year_founded = htmlspecialchars($input2, ENT_QUOTES);
+
+    $input3 = $_POST['num_wins'];
+    $num_wins = htmlspecialchars($input3, ENT_QUOTES);
+
+    $input4 = $_POST['num_widereceivers'];
+    $num_widereceivers = htmlspecialchars($input4, ENT_QUOTES);
 
     // Perform insert operation
     $checkstmt = $mysqli->prepare("SELECT * FROM $table WHERE name=?");
@@ -84,13 +108,27 @@ elseif (strcmp($_POST['filter'], "insert_team.html") == 0) {
 }
 elseif (strcmp($_POST['filter'], "insert_history.html") == 0) {
     $table = "History";
-    $player_id = $_POST['player_id'];
-    $career_touchdowns = $_POST['career_touchdowns'];
-    $career_receiving_yardage = $_POST['career_receiving_yardage'];
-    $career_catches = $_POST['career_catches'];
-    $years_played = $_POST['years_played'];
-    $current_team = $_POST['current_team'];
-    $previous_team = $_POST['previous_team'];
+
+    $input = $_POST['player_id'];
+    $player_id = htmlspecialchars($input, ENT_QUOTES);
+
+    $input2 = $_POST['career_touchdowns'];
+    $career_touchdowns = htmlspecialchars($input2, ENT_QUOTES);
+
+    $input3 = $_POST['career_receiving_yardage'];
+    $career_receiving_yardage = htmlspecialchars($input3, ENT_QUOTES);
+
+    $input4 = $_POST['career_catches'];
+    $career_catches = htmlspecialchars($input4, ENT_QUOTES);
+
+    $input5 = $_POST['years_played'];
+    $years_played = htmlspecialchars($input5, ENT_QUOTES);
+
+    $input6 = $_POST['current_team'];
+    $current_team = htmlspecialchars($input6, ENT_QUOTES);
+
+    $input7 = $_POST['previous_team'];
+    $previous_team = htmlspecialchars($input7, ENT_QUOTES);
 
     // Perform insert operation
     $checkstmt = $mysqli->prepare("SELECT * FROM Player WHERE player_id=?");
@@ -128,10 +166,18 @@ elseif (strcmp($_POST['filter'], "insert_history.html") == 0) {
 }
 elseif (strcmp($_POST['filter'], "insert_coach.html") == 0) {
     $table = "Coach";
-    $coach_id = $_POST['coach_id'];
-    $team = $_POST['team'];
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
+
+    $input = $_POST['coach_id'];
+    $coach_id = htmlspecialchars($input, ENT_QUOTES);
+
+    $input2 = $_POST['team'];
+    $team = htmlspecialchars($input2, ENT_QUOTES);
+
+    $input3 = $_POST['first_name'];
+    $first_name = htmlspecialchars($input3, ENT_QUOTES);
+
+    $input4 = $_POST['last_name'];
+    $last_name = htmlspecialchars($input4, ENT_QUOTES);
 
     // Perform insert operation
     $checkstmt = $mysqli->prepare("SELECT * FROM Team WHERE name=?");
@@ -164,12 +210,24 @@ elseif (strcmp($_POST['filter'], "insert_coach.html") == 0) {
 }
 elseif (strcmp($_POST['filter'], "insert_experience.html") == 0) {
     $table = "Experience";
-    $coach_id = $_POST['coach_id'];
-    $team = $_POST['team'];
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
-    $years_coached = $_POST['years_coached'];
-    $coach_type = $_POST['coach_type'];
+    
+    $input = $_POST['coach_id'];
+    $coach_id = htmlspecialchars($input, ENT_QUOTES);
+
+    $input2 = $_POST['team'];
+    $team = htmlspecialchars($input2, ENT_QUOTES);
+
+    $input3 = $_POST['first_name'];
+    $first_name = htmlspecialchars($input3, ENT_QUOTES);
+
+    $input4 = $_POST['last_name'];
+    $last_name = htmlspecialchars($input4, ENT_QUOTES);
+
+    $input5 = $_POST['years_coached'];
+    $years_coached = htmlspecialchars($input5, ENT_QUOTES);
+
+    $input6 = $_POST['coach_type'];
+    $coach_type = htmlspecialchars($input6, ENT_QUOTES);
 
     // Perform insert operation
     $checkstmt = $mysqli->prepare("SELECT * FROM Coach WHERE coach_id=?");

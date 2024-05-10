@@ -26,10 +26,10 @@
         <h3>Names must be spelled correctly.</h3>
         <form id="player_search" action="player_display.php" method="get">
             <label for="textbox">Enter first name</label>
-            <input type="text" name="firstName" required pattern="[a-zA-Z\-*]{1,15}" required><br>
+            <input type="text" name="firstName" required pattern="[a-zA-Z\-*']{1,15}" required><br>
  
             <label for="textbox">Enter last name</label>
-            <input type="text" name="lastName" required pattern="[a-zA-Z\-*]{1,15}" required><br>
+            <input type="text" name="lastName" required pattern="[a-zA-Z\-*']{1,15}" required><br>
  
             <button type="submit">Search</button>
         </form>

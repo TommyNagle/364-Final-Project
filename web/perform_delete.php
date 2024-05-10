@@ -18,7 +18,8 @@ if ($mysqli->connect_error) {
 // Perform insert based on selected table
 if (strcmp($_POST['filter'], "delete_player.html") == 0) {
     $table = "Player";
-    $player_id = $_POST['player_id'];
+    $input = $_POST['player_id'];
+    $player_id = htmlspecialchars($input, ENT_QUOTES);
 
     // Perform delete operation
     $checkstmt = $mysqli->prepare("SELECT * FROM $table WHERE player_id=?");
@@ -45,7 +46,8 @@ if (strcmp($_POST['filter'], "delete_player.html") == 0) {
 }
 elseif (strcmp($_POST['filter'], "delete_team.html") == 0) {
     $table = "Team";
-    $name = $_POST['name'];
+    $input = $_POST['name'];
+    $name = htmlspecialchars($input, ENT_QUOTES);
 
     // Perform delete operation
     $checkstmt = $mysqli->prepare("SELECT * FROM $table WHERE name=?");
@@ -72,7 +74,8 @@ elseif (strcmp($_POST['filter'], "delete_team.html") == 0) {
 }
 elseif (strcmp($_POST['filter'], "delete_history.html") == 0) {
     $table = "History";
-    $player_id = $_POST['player_id'];
+    $input = $_POST['player_id'];
+    $player_id = htmlspecialchars($input, ENT_QUOTES);
 
     // Perform delete operation
     $checkstmt = $mysqli->prepare("SELECT * FROM History WHERE player_id=?");
@@ -99,7 +102,8 @@ elseif (strcmp($_POST['filter'], "delete_history.html") == 0) {
 }
 elseif (strcmp($_POST['filter'], "delete_coach.html") == 0) {
     $table = "Coach";
-    $coach_id = $_POST['coach_id'];
+    $input = $_POST['coach_id'];
+    $coach_id = htmlspecialchars($input, ENT_QUOTES);
 
     // Perform delete operation=
     $checkstmt2 = $mysqli->prepare("SELECT * FROM Coach WHERE coach_id=?");
@@ -126,7 +130,8 @@ elseif (strcmp($_POST['filter'], "delete_coach.html") == 0) {
 }
 elseif (strcmp($_POST['filter'], "delete_experience.html") == 0) {
     $table = "Experience";
-    $coach_id = $_POST['coach_id'];
+    $input = $_POST['coach_id'];
+    $coach_id = htmlspecialchars($input, ENT_QUOTES);
 
     // Perform delete operation
     $checkstmt2 = $mysqli->prepare("SELECT * FROM Experience WHERE coach_id=?");
@@ -151,8 +156,6 @@ elseif (strcmp($_POST['filter'], "delete_experience.html") == 0) {
         echo "<span style='color: red;'>Error: Coach ID does not exist in database. Make new entry in Coach table first.</span>";
     }
 }
-
-
 
 $mysqli->close();
 ?>

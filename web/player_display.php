@@ -16,9 +16,12 @@ if ($mysqli->connect_error) {
 }
 
 // Get name form values
-$fname = $_GET['firstName'];
-$lname = $_GET['lastName'];
+$input = $_GET['firstName'];
+$input2 = $_GET['lastName'];
 
+// Sanitize input
+$fname = htmlspecialchars($input, ENT_QUOTES);
+$lname = htmlspecialchars($input2, ENT_QUOTES);
 
 
 // Select data from database based on form inputs
